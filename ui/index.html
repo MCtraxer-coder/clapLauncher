@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Clap Launcher</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👏</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+      <header>
+          <div class = "logo">👏</div>
+          <div>
+              <h1>Clap Launcher</h1>
+              <p class ="sub">Запуск по хлопкам</p>
+          </div>
+          <div id = "status" class="status off">off</div>
+      </header>
+
+      <section class="card">
+          <div class="row">
+              <label>Порог громкости</label>
+              <div class="val"><span id="thVal">0.30</span></div>
+          </div>
+          <input type="range" id="threshold" min="0.05" max="1" step="0.01" value="0.3"><div class="row">
+        <label>Хлопков для запуска</label>
+        <div class="val"><span id="clapsVal">2</span></div>
+      </div>
+      <input type="range" id="claps_required" min="1" max="5" step="1" value="2">
+
+      <div class="row">
+        <label>Окно времени (сек)</label>
+        <div class="val"><span id="winVal">1.5</span></div>
+      </div>
+      <input type="range" id="clap_window" min="0.5" max="5" step="0.1" value="1.5">
+
+      <div class="row">
+        <label>Кулдаун (сек)</label>
+        <div class="val"><span id="cdVal">2.0</span></div>
+      </div>
+      <input type="range" id="cooldown" min="0.5" max="10" step="0.5" value="2.0">
+      </section>
+
+      <section class="card">
+      <div class="row"><label>Что запускать</label></div>
+      <div class="tabs">
+        <button class="tab active" data-type="app">Приложение</button>
+        <button class="tab" data-type="url">Ссылка</button>
+      </div>
+      <input type="text" id="action_target" placeholder="notepad.exe или https://...">
+      <button id="testBtn" class="ghost">▶ Проверить действие</button>
+    </section>
+
+      <<section class="controls">
+      <button id="calBtn" class="ghost">🎤 Авто-калибровка</button>
+      <button id="startBtn" class="primary">▶ Старт</button>
+      <button id="stopBtn" class="danger" disabled>⏹ Стоп</button>
+    </section>
+
+      <section class="card log-card">
+      <div class="row"><label>Лог</label>
+        <button id="clearLog" class="link">очистить</button>
+      </div>
+      <div id="log" class="log"></div>
+    </section>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
